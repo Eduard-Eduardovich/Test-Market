@@ -8,13 +8,14 @@ from handlers import handler
 from models import async_main
 
 
+
        
 async def main():
     await async_main()
     
     load_dotenv('.env')
     token = os.getenv("TOKEN")
-    bot = Bot(token)
+    bot = Bot(token,parse_mode='HTML')
     dp = Dispatcher()
 
     dp.include_routers(handler.router)
